@@ -18,7 +18,6 @@ export class KillDragonHandler implements ICommandHandler<KillDragonCommand> { /
 
     const { heroId, dragonId } = command;
     this.heros[0].name = 'fake post';
-    // console.log(this.heros);
-    return this.heros;
+    return { heros: this.heros};
   }
 }

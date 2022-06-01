@@ -12,8 +12,7 @@ export class GetHeroesHandler implements IQueryHandler<GetHeroesQuery> {
   async execute(query: GetHeroesQuery) {
     console.log(clc.yellowBright('Async GetHeroesQuery...'));
     console.log('made it to query handler');
-    let getRequest = {heros: this.heros[0]};
-    console.log(getRequest);
-    return getRequest;
+    let hero0 = this.heros[0];
+    return {hero: hero0};
   }
 }

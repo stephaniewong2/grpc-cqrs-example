@@ -8,6 +8,7 @@ import { HeroController } from './hero.controller';
 import { resolve } from 'path';
 import { CqrsModule } from '@nestjs/cqrs';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
+import { HeroModule } from './heroes.module';
 
 @Module({
     imports: [
@@ -17,7 +18,8 @@ import { CommandBus, QueryBus } from '@nestjs/cqrs';
         LoadbalanceModule.forRootAsync({ inject: [BOOT] }),
         CqrsModule,
         CommandBus,
-        QueryBus
+        QueryBus,
+        HeroModule
     ],
     controllers: [HeroController],
 })

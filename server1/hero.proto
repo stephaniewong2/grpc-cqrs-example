@@ -11,7 +11,8 @@ service HeroService {
     rpc List (google.protobuf.Empty) returns (ListHeroResponse) {
     }
 
-    rpc Post (GetHeroRequest) returns (ListHeroResponse) 
+    rpc Post (GetHeroRequest) returns (ListHeroResponse) {
+    }
 }
 
 message ListHeroResponse {

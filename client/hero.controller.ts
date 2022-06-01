@@ -42,7 +42,7 @@ export class HeroController {
         return data;
     }
 
-    @Post('/fakePost')
+    @Post('/post')
     async createHero(@Param('heroId') heroId: number) { 
         console.log('POST REQUEST');
         const data = await this.heroService.post({id: heroId }).toPromise();

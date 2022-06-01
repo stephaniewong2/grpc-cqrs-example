@@ -13,19 +13,14 @@ export class HeroController {
       ) {}
     private readonly heros: Hero[] = [{ id: 1, name: 'Berkeley', ranking: 1 }, { id: 2, name: 'UCLA', ranking: 2 }];
 
-    // @Get()
-    // async findAll(): Promise<Hero[]> {
-    //   return this.queryBus.execute(new GetHeroesQuery());
-    // }
-
     @GrpcMethod('HeroService')
-    async get(): Promise<Hero[]> {
+    async get(): Promise<Hero> {
         console.log('server1 get invoked');
         console.log('going to queryBus');
         let data = await this.queryBus.execute(new GetHeroesQuery());
-        console.log('CQRS get successful');
+        console.log(data);
+        console.log('CQRS GET successful');
         return data;
-        // return this.queryBus.execute(new GetHeroesQuery());
     }
 
     @GrpcMethod('HeroService')
@@ -38,7 +33,7 @@ export class HeroController {
     async post(): Promise<Hero[]> {
         console.log('going to commandBus');
         let data = await this.commandBus.execute(new KillDragonCommand('1', '2'));
-        console.log('CQRS get successful');
+        console.log('CQRS POST successful');
         return data;
     }
 
